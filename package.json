@@ -1,0 +1,10 @@
+{
+  "name": "simple-origin-compare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "normalize-url": "^1.7.0"
+  }
+}
