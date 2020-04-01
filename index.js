@@ -51,8 +51,8 @@ module.exports = function(allowedOrigins, opts) {
     if(allowedOrigins.indexOf(sourceOrigin) != -1) {
       next();
     } else {
-      if(failureHandler) {
-        failureHandler(req, res, next);
+      if(opts.failureHandler) {
+        opts.failureHandler(req, res, next);
       } else {
         res.statusMessage = opts.statusMessage;
         res.status(opts.statusCode).end();
