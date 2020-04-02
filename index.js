@@ -1,4 +1,3 @@
-"use strict";
 var url = require('url');
 var normalizeUrl = require('normalize-url');
 
