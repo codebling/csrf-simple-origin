@@ -4,6 +4,7 @@ const normalizeUrl = require('normalize-url');
 const normalizeOpts = {
   normalizeProtocol: true,
   stripWWW: false,
+  normalizeHttps: true,
 };
 
 const defaultOpts = {
