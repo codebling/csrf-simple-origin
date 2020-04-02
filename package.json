@@ -5,7 +5,7 @@
   "private": true,
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "normalize-url": "^1.9.1"
+    "normalize-url": "^5.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

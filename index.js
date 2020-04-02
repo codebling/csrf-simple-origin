@@ -4,7 +4,7 @@ var normalizeUrl = require('normalize-url');
 
 var normalizeOpts = {
   normalizeProtocol: true,
-  stripFragment: true,
+  stripHash: true,
   stripWWW: false,
   removeQueryParameters: true,
   removeTrailingSlash: true,
