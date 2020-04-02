@@ -16,14 +16,14 @@ const defaultOpts = {
   failureHandler: false
 };
 
-module.exports = function(allowedOrigins, options) {
+module.exports = (allowedOrigins, options) => {
   const opts = Object.assign({}, defaultOpts, options);
 
   const normalizedAllowedOrigins = allowedOrigins.map(function(allowedOrigin) {
     return normalizeUrl(allowedOrigin, normalizeOpts);
   });
 
-  return function(req, res, next) {
+  return (req, res, next) => {
     const origin = req.headers['origin'];
 
     const normalizedOrigin = normalizeUrl(origin, normalizeOpts);
