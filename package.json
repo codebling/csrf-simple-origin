@@ -1,5 +1,5 @@
 {
-  "name": "simple-origin-compare",
+  "name": "express-csrf-simple-origin-compare",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
