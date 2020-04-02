@@ -16,8 +16,8 @@ const defaultOpts = {
   failureHandler: false
 };
 
-module.exports = function(allowedOrigins, opts) {
-  opts = Object.assign({}, defaultOpts, opts);
+module.exports = function(allowedOrigins, options) {
+  const opts = Object.assign({}, defaultOpts, options);
 
   allowedOrigins = allowedOrigins.map(function(allowedOrigin) {
     return normalizeUrl(allowedOrigin, normalizeOpts);
