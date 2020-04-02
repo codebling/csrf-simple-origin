@@ -40,7 +40,7 @@ module.exports = function(allowedOrigins, opts) {
     //set "source origin" from the Origin header,
     // falling back to referer if that header is not preset.
     // Older browsers do not support it yet, and it seems like
-    // even in supported browsers there are some cases where it isn't sent (from dev testing)
+    // even in supported browsers there are some cases where it isn't sent
     var sourceOrigin = origin || referer || '';
 
     sourceOrigin = normalizeUrl(sourceOrigin, normalizeOpts);
