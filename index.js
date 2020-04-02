@@ -19,7 +19,7 @@ const defaultOpts = {
 module.exports = function(allowedOrigins, options) {
   const opts = Object.assign({}, defaultOpts, options);
 
-  allowedOrigins = allowedOrigins.map(function(allowedOrigin) {
+  const normalizedAllowedOrigins = allowedOrigins.map(function(allowedOrigin) {
     return normalizeUrl(allowedOrigin, normalizeOpts);
   });
 
@@ -28,7 +28,7 @@ module.exports = function(allowedOrigins, options) {
 
     const normalizedOrigin = normalizeUrl(origin, normalizeOpts);
 
-    if(allowedOrigins.includes(normalizedOrigin)) {
+    if(normalizedAllowedOrigins.includes(normalizedOrigin)) {
       next();
     } else {
       if(opts.failureHandler) {
