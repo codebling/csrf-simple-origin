@@ -21,15 +21,16 @@ const assertError = done => err => {
 
 describe('Blocking', () => {
   describe('Partially matching domains', () => {
+
+    const allowedOrigins = ['localhost'];
+
+    const req = {
+      headers: {
+        'origin': 'localhost.example.com'
+      }
+    };
+
     it('should reply 4xx when no options are passed', done => {
-      const allowedOrigins = ['localhost'];
-
-      const req = {
-        headers: {
-          'origin': 'localhost.example.com'
-        }
-      };
-
       const res = createResponse();
       
       res.on('end', function() {
@@ -38,6 +39,15 @@ describe('Blocking', () => {
       });
 
       originCompare(allowedOrigins)(req, res, () => done(new Error('should not have been called')));
+    });
+
+    it('should call the handler when one is passed', done => {
+      const res = createResponse();
+      
+      res.on('end',() => done(new Error('should not have been called'))); 
+      
+      const options = { failureHandler: (req, res, next) => done() };
+      originCompare(allowedOrigins, options)(req, res, () => done(new Error('should not have been called')));
     });
   });
 });
