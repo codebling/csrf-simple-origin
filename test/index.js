@@ -20,8 +20,8 @@ const assertError = done => err => {
 
 
 describe('Blocking', () => {
-  describe('Partial match', () => {
-    it('should reply 4xx when no options are specified for domains that partially match', done => {
+  describe('Partially matching domains', () => {
+    it('should reply 4xx when no options are passed', done => {
       const allowedOrigins = ['localhost'];
 
       const req = {
