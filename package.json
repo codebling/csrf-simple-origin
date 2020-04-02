@@ -2,8 +2,7 @@
   "name": "express-csrf-simple-origin-compare",
   "version": "1.0.0",
   "main": "index.js",
-  "private": true,
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
