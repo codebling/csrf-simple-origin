@@ -2,21 +2,25 @@ const originCompare = require('../index');
 
 const httpMocks = require('node-mocks-http');
 const chai = require('chai');
-const should = chai.should();
+const sinonChai = require('sinon-chai');
+const sinon = require('sinon');
+
+const { expect, assert } = chai;
+chai.should();
+chai.use(sinonChai);
 
 const createResponse = () => 
   httpMocks.createResponse({eventEmitter: require('events').EventEmitter});
 
 const assertError = done => err => {
-  chai.assert(err != null);
-  chai.assert(res.statusCode == 400);
+  assert(err != null);
+  assert(res.statusCode == 400);
   done();
 };
 
 
 describe('Blocking', () => {
   describe('Partial match', () => {
-    
     it('should reply 400 when no options are specified for domains that partially match', done => {
       const allowedOrigins = ['localhost'];
 
@@ -27,10 +31,13 @@ describe('Blocking', () => {
       };
 
       const res = createResponse();
+      
       res.on('end', function() {
-        done(new Error('should not return'));
+        assert(res.statusCode >= 400 && res.statusCode < 500);
+        done();
       });
-      originCompare(allowedOrigins, )(req, res, () => );
+
+      originCompare(allowedOrigins)(req, res, () => done(new Error('should not have been called')));
     });
   });
 });
