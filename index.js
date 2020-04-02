@@ -1,7 +1,7 @@
-var url = require('url');
-var normalizeUrl = require('normalize-url');
+const url = require('url');
+const normalizeUrl = require('normalize-url');
 
-var normalizeOpts = {
+const normalizeOpts = {
   normalizeProtocol: true,
   stripHash: true,
   stripWWW: false,
@@ -10,7 +10,7 @@ var normalizeOpts = {
   removeDirectoryIndex: true
 };
 
-var defaultOpts = {
+const defaultOpts = {
   compareFullPath: false,
   statusCode: 400,
   statusMessage: 'Deceptive Routing',
@@ -18,7 +18,7 @@ var defaultOpts = {
 };
 
 function stripPath(allowedURL) {
-  var parsed = url.parse(allowedURL);
+  const parsed = url.parse(allowedURL);
   return parsed.protocol + ':' + (parsed.slashes ? '//' : '') + parsed.host;
 }
 
@@ -33,14 +33,14 @@ module.exports = function(allowedOrigins, opts) {
   }
 
   return function(req, res, next) {
-    var origin = req.headers['origin'];
-    var referer = req.headers['referer'];
+    const origin = req.headers['origin'];
+    const referer = req.headers['referer'];
 
     //set "source origin" from the Origin header,
     // falling back to referer if that header is not preset.
     // Older browsers do not support it yet, and it seems like
     // even in supported browsers there are some cases where it isn't sent
-    var sourceOrigin = origin || referer || '';
+    let sourceOrigin = origin || referer || '';
 
     sourceOrigin = normalizeUrl(sourceOrigin, normalizeOpts);
     if(!opts.compareFullPath) {
