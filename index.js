@@ -1,5 +1,3 @@
-const url = require('url');
-
 const defaultOpts = {
   statusCode: 400,
   statusMessage: 'Deceptive Routing',
