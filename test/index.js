@@ -15,7 +15,7 @@ it('should not accept domains that partially match', function(done) {
   };
   var res = httpMocks.createResponse({eventEmitter: require('events').EventEmitter});
 
-  function assertFailure(err) {
+  function assertError(err) {
     chai.assert(err != null);
     chai.assert(res.statusCode == 400);
     done();
@@ -24,5 +24,5 @@ it('should not accept domains that partially match', function(done) {
   res.on('end', function() {
     done(new Error('should not return'));
   });
-  originCompare(allowedOrigins)(req, res, assertFailure);
+  originCompare(allowedOrigins)(req, res, assertError);
 }) ;
