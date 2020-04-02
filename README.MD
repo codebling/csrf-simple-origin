@@ -14,12 +14,12 @@ HTTP and Express middleware that compares the request's Origin header with a lis
 
 # Installation
 ```
-npm i express-csrf-simple-origin-compare
+npm i csrf-simple-origin
 ```
 
 # Use
 ```
-const csrf = require('express-csrf-simple-origin-compare');
+const csrf = require('csrf-simple-origin');
     
 const allowedOrigins = ['https://yoursite.example.com', 'http://anothersubdomain.yoursite.example.com'];
 app.use(csrf(allowedOrigins));
