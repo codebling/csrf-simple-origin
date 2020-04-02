@@ -10,6 +10,7 @@ HTTP and Express middleware that compares the request's Origin header with a lis
     - [`options.statusMessage` default: "Deceptive Routing"](#optionsstatusmessage-default-%22deceptive-routing%22)
     - [`options.failureHandler` default: null](#optionsfailurehandler-default-null)
       - [Example](#example)
+- [License](#license)
 
 # Installation
 ```
@@ -95,3 +96,6 @@ const failureHandler = (req, res, next) => {
 app.use(csrf(allowedOrigins, {failureHandler}));
 ```
 
+# License
+
+This code is licensed [WTFPL](https://en.wikipedia.org/wiki/WTFPL), [Beerware](https://en.wikipedia.org/wiki/Beerware), or [MIT](https://en.wikipedia.org/wiki/MIT_License), whichever you prefer. Use this code with or without modification, with or without attribution, with or without reproducing this license, for commercial purposes or any other purpose. 
