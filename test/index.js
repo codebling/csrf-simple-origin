@@ -21,9 +21,8 @@ it('should not accept domains that partially match', function(done) {
     done();
   }
 
-
   res.on('end', function() {
-    
+    done(new Error('should not return'));
   });
   originCompare(allowedOrigins)(req, res, assertFailure);
 }) ;
