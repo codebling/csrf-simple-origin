@@ -1,8 +1,8 @@
-var originCompare = require('../index');
+const originCompare = require('../index');
 
-var httpMocks = require('node-mocks-http');
-var chai = require('chai');
-var should = chai.should();
+const httpMocks = require('node-mocks-http');
+const chai = require('chai');
+const should = chai.should();
 
 const createResponse = () => 
   httpMocks.createResponse({eventEmitter: require('events').EventEmitter});
