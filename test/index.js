@@ -15,11 +15,11 @@ it('should not accept domains that partially match', function(done) {
   };
   var res = httpMocks.createResponse({eventEmitter: require('events').EventEmitter});
 
-function assertFailure(err) {
-  chai.assert(err != null);
-  chai.assert(res.statusCode == 400);
-  done();
-}
+  function assertFailure(err) {
+    chai.assert(err != null);
+    chai.assert(res.statusCode == 400);
+    done();
+  }
 
 
   res.on('end', function() {
