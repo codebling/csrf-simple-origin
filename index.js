@@ -1,11 +1,4 @@
 const url = require('url');
-const normalizeUrl = require('normalize-url');
-
-const normalizeOpts = {
-  normalizeProtocol: true,
-  stripWWW: false,
-  normalizeHttps: true,
-};
 
 const defaultOpts = {
   statusCode: 400,
@@ -16,16 +9,10 @@ const defaultOpts = {
 module.exports = (allowedOrigins, options) => {
   const opts = Object.assign({}, defaultOpts, options);
 
-  const normalizedAllowedOrigins = allowedOrigins.map(function(allowedOrigin) {
-    return normalizeUrl(allowedOrigin, normalizeOpts);
-  });
-
   return (req, res, next) => {
     const origin = req.headers['origin'];
 
-    const normalizedOrigin = normalizeUrl(origin, normalizeOpts);
-
-    if(normalizedAllowedOrigins.includes(normalizedOrigin)) {
+    if(allowedOrigins.includes(origin)) {
       next();
     } else {
       if(opts.failureHandler) {
