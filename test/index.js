@@ -33,7 +33,7 @@ describe('Blocking', () => {
     it('should reply 4xx when no options are passed', done => {
       const res = createResponse();
       
-      res.on('end', function() {
+      res.on('end', () => {
         assert(res.statusCode >= 400 && res.statusCode < 500);
         done();
       });
