@@ -1,7 +1,7 @@
 const defaultOpts = {
   statusCode: 400,
   statusMessage: 'Deceptive Routing',
-  failureHandler: false
+  failureHandler: null,
 };
 
 module.exports = (allowedOrigins, options) => {
