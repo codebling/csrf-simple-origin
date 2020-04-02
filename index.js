@@ -3,11 +3,7 @@ const normalizeUrl = require('normalize-url');
 
 const normalizeOpts = {
   normalizeProtocol: true,
-  stripHash: true,
   stripWWW: false,
-  removeQueryParameters: true,
-  removeTrailingSlash: true,
-  removeDirectoryIndex: true
 };
 
 const defaultOpts = {
