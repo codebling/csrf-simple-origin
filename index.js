@@ -28,7 +28,7 @@ module.exports = function(allowedOrigins, opts) {
 
     const normalizedOrigin = normalizeUrl(origin, normalizeOpts);
 
-    if(allowedOrigins.indexOf(normalizedOrigin) != -1) {
+    if(allowedOrigins.includes(normalizedOrigin)) {
       next();
     } else {
       if(opts.failureHandler) {
